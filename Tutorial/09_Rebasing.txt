@@ -1,0 +1,26 @@
+# How to resolve a binary file conflict with Git
+
+Auto-merging somefile.dll
+CONFLICT (content): Merge conflict in somefile.dll
+Automatic merge failed; fix conflicts and then commit the result.
+In this scenario, somefile.dll is a binary file that has been modified in both the current branch, and the branch you are attempting to merge in to the current branch. Since the file cannot be textually merged, you need to make a decision: do you keep the version of the file in your current branch, or the version in the other branch.
+
+## Resolve using mine
+The file in your working copy is still the copy from your current branch – in other words, it was not modified by the merge attempt. To resolve the conflict and keep this file:
+
+git add somefile.dll 
+git commit –m “My commit message for the merge”
+
+## Resolve using theirs
+If you prefer to resolve the conflict using their copy, you need to get the version of the file from the branch you were trying to merge in:
+
+git checkout otherbranch somefile.dll
+
+Now that you have the correct version of the file in your working copy, you can mark it as resolved (by adding it), and commit:
+
+git add somefile.dll
+git commit –m “My commit message for the merge”
+
+Note that in place of otherbranch, you can use any name (treeish) that refers to a branch: a local branch name (otherbranch), a remote branch name (origin/master), a specific commit SHA (980e3cc), etc. For example, if you were merging in from your remote when you received the conflict, and you wanted to resolve using the remote version, you would retrieve that copy of the file using:
+
+git checkout origin/master somefile.dll

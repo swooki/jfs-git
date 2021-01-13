@@ -1,0 +1,69 @@
+# create a new branch and checkout
+$  git checkout -b newbranch
+Switched to a new branch 'newbranch'
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (newbranch)
+
+# change name of a branch (newbranch -> titlechange)
+$ git branch -m newbranch titlechange
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (titlechange)
+
+$ git status
+On branch titlechange
+nothing to commit, working tree clean
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (titlechange)
+$ git hist
+* 961f04e (HEAD -> titlechange, origin/master, origin/HEAD, master) all done
+* 1ce7fd1 update local repository
+* 3cbd716 adds another change to README.md
+
+$ git status
+On branch titlechange
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git status
+On branch titlechange
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (titlechange)
+$ git commit -am "change title of index.html"
+[titlechange 8c3823c] change title of index.html
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (titlechange)
+$ git hist
+* 8c3823c (HEAD -> titlechange) change title of index.html
+* 961f04e (origin/master, origin/HEAD, master) all done
+
+$ git branch -d titlechange
+Deleted branch titlechange (was 8c3823c).
+
+$ git merge add-copyright --no-ff
+Merge made by the 'recursive' strategy.
+ README.md   | 2 +-
+ simple.html | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+KWONS@JFSLT427170 MINGW64 /c/projects/starter-web (master)
+$ git hist
+*   76ee852 (HEAD -> master) Merge branch 'add-copyright'
+|\
+| * 7a38841 (add-copyright) adds copyright notice to README.md
+| * 4ac61e7 adds copy right notice
+|/
+
+
+
+
