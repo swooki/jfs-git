@@ -1,0 +1,63 @@
+$ git stash
+$ git stash list
+$ git ls-files
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   humans.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        aNewFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+KWONS@JFSLT427170 MINGW64 ~/projects/starter-web (master)
+$ git stash -u
+Saved working directory and index state WIP on master: 1f282bd changes to simple.txt file
+
+KWONS@JFSLT427170 MINGW64 ~/projects/starter-web (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+KWONS@JFSLT427170 MINGW64 ~/projects/starter-web (master)
+$ git stash drop
+Dropped refs/stash@{0} (8ed9691cda534f88262c9cddb2d016e1c546fc55)
+
+$ git stash save "changes to simple.html"
+Saved working directory and index state On master: changes to simple.html
+
+
+## 67_Stashing into a branch
+
+$ git stash branch new-changes
+Switched to a new branch 'new-changes'
+On branch new-changes
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   simple.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        new.md
+
+Dropped refs/stash@{0} (abab3c353341d900588adfa180015444f3cdab28)
+
+KWONS@JFSLT427170 MINGW64 ~/projects/starter-web (new-changes)
+$ git hist
+* 1f282bd (HEAD -> new-changes, master) changes to simple.txt file
